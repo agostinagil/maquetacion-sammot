@@ -84,7 +84,7 @@ img {
 .header {
   position: fixed;
   left: 0;
-  bottom: 0;
+  top: 0;
   z-index: 999;
   width: 100%;
   height: var(--header-height-sm);
@@ -174,11 +174,6 @@ img {
   margin: 1rem auto;
   border-radius: 2%;
   border-bottom: thin solid var(--second-color);
-}
-
-.music-card:hover {
-  background-color: var(--bg-second-color);
-  transition: all 500ms ease-in;
 }
 
 .music-card-title {
@@ -315,6 +310,7 @@ img {
   width: 100%;
   max-width: 200px;
   height: auto;
+  padding-top: var(--header-height);
 }
 
 .bio-title-lg {
@@ -323,6 +319,31 @@ img {
 
 .card-icon {
   color: var(--second-color);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.footer a {
+  padding: 0 1rem;
+}
+
+.footer a > svg {
+  fill: var(--second-color);
+}
+
+.footer-text {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.footer-text p {
+  margin: 0.3rem;
+  font-size: 0.8rem;
 }
 
 .header-logo img {
@@ -496,6 +517,8 @@ img {
   }
 
   .music-card:hover {
+    background-color: var(--bg-second-color);
+    transition: all 500ms ease-in;
     transform: translateY(-3rem);
   }
 }
