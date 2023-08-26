@@ -450,6 +450,7 @@ img {
     justify-content: center;
     opacity: 1;
     pointer-events: auto;
+    margin-top: 0;
   }
 
   .menu a {
