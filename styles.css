@@ -1,0 +1,501 @@
+/* ********************** VARIABLES ********************** */
+:root {
+  --bg-main-color: rgb(37, 37, 37);
+  --bg-second-color: rgb(0, 0, 0);
+  --bg-gray: rgb(66, 65, 64);
+  --bg-btn-gray: rgba(89, 89, 89, 0.561);
+  --black-alpha-color: rgba(0, 0, 0, 0.5);
+  --first-color: rgb(225, 235, 244);
+  --second-color: rgb(247, 87, 42);
+  --box-shadow: rgb(131, 67, 50);
+  --font: "Poppins", sans-serif;
+  --max-width: 1200px;
+  --header-height: 6rem;
+  --header-heigt-sm-: 4.5rem;
+  --hero-img-opacity: rgba(0, 0, 0, 0.5);
+}
+
+/* ********************** RESET ********************** */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: var(--font);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--bg-main-color);
+  color: var(--first-color);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  /* overflow-x: hidden; */
+}
+
+a {
+  text-decoration: none;
+  color: var(--first-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 0.7rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ********************** COMPONENTS ********************** */
+
+/*  ************* Header *************  */
+.header {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  width: 100%;
+  height: var(--header-height-sm);
+  background-color: var(--bg-second-color);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+/*  ************* Hero Image *************  */
+@media screen and (min-width: 768px) {
+  .hero-image {
+    background-image: var(--hero-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: var(--hero-attachment);
+  }
+
+  .hero-image-opacity {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--hero-opacity-color);
+    text-align: center;
+  }
+}
+
+/* ************* Menú ************* */
+.menu {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  bottom: var(--header-height);
+  padding: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-second-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.menu a {
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.menu a:hover {
+  color: var(--second-color);
+}
+
+.menu-btn {
+  outline: thin solid var(--first-color);
+  border: 0;
+  border-radius: 2%;
+  cursor: pointer;
+  background-color: var(--second-color);
+}
+
+.menu-btn svg {
+  fill: var(--first-color);
+}
+
+.menu.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ************* Music Cards ************* */
+.music-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 16rem;
+  height: 21rem;
+  background-color: var(--bg-gray);
+  margin: 1rem auto;
+  border-radius: 2%;
+  border-bottom: thin solid var(--second-color);
+}
+
+.music-card:hover {
+  background-color: var(--bg-second-color);
+  transition: all 500ms ease-in;
+}
+
+.music-card-title {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+/* ************* Tour Table ************* */
+.table {
+  font-size: 1.2rem;
+  margin: 2rem 1rem;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-bottom: thin solid var(--second-color);
+  margin-bottom: 2rem;
+}
+
+.table-row p:nth-child(2) {
+  grid-column: span 2;
+}
+
+.table-row p:last-child {
+  text-align: right;
+  align-self: flex-end;
+}
+
+.table-row p {
+  margin: 0.1rem;
+}
+
+.table-row a:hover {
+  color: var(--second-color);
+  font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+  .table-row {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .table-row p:nth-child(2) {
+    grid-column: auto;
+  }
+
+  .table-row p:last-child {
+    text-align: right;
+  }
+}
+
+/* ********************** UTILITIES ********************** */
+.box-shadow-1 {
+  box-shadow: 0.25rem 0.25rem 0.3rem var(--box-shadow);
+}
+
+.btn {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  color: var(--first-color);
+  border-bottom: thin solid var(--second-color);
+  display: none;
+}
+
+.btn:hover {
+  color: var(--second-color);
+  font-size: 3rem;
+  transition: all 1s ease-in-out;
+}
+
+.btn-sm {
+  /* border-radius: 0.3rem; */
+  display: inline-block;
+  /* padding: 0.5rem; */
+  width: 180px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  color: var(--first-color);
+  border-bottom: thin solid var(--second-color);
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--max-width);
+}
+
+.none {
+  display: none;
+}
+
+.section {
+  padding: 2rem 1rem;
+}
+/* ********************** SITE STYLES ********************** */
+.bio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2.5rem;
+}
+
+.bio-image {
+  margin-top: 3rem;
+  overflow: hidden;
+}
+
+.bio-image img {
+  max-height: 600px;
+  width: auto;
+}
+
+.bio-image:hover img {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+  transition: all 2s ease-in-out;
+}
+
+.bio-title {
+  width: auto;
+}
+
+.bio-title img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+.bio-title-lg {
+  display: none;
+}
+
+.card-icon {
+  color: var(--second-color);
+}
+
+.header-logo img {
+  width: auto;
+  height: 4rem;
+}
+
+.music-cards {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.music-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.tour-section {
+  margin-top: 2rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+/* ********************** MEDIA QUERIES ********************** */
+
+@media screen and (min-width: 768px) {
+  .bio {
+    display: grid;
+    grid-template-columns: repeat(2, 45%);
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--header-height);
+  }
+
+  .bio-image {
+    margin-top: 0rem;
+  }
+
+  .bio-text {
+    font-size: 1rem;
+  }
+
+  .bio-title {
+    display: none;
+  }
+
+  .bio-title-lg {
+    display: block;
+    font-size: 2rem;
+    color: var(--second-color);
+  }
+
+  .bio-title-lg:hover {
+    color: var(--first-color);
+    cursor: default;
+    font-size: 2.5rem;
+    transition: all 2s ease;
+  }
+
+  .btn {
+    display: inline-block;
+  }
+
+  .full-screen {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .header {
+    position: sticky;
+    top: 0;
+  }
+
+  .header > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 2rem;
+  }
+
+  .header-btn {
+    display: none;
+  }
+
+  .header-logo img {
+    width: auto;
+    height: 6rem;
+  }
+
+  .menu {
+    flex-direction: row;
+    position: static;
+    width: auto;
+    justify-content: center;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu a {
+    margin: 0.3rem;
+    font-size: 1rem;
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .menu.is-active {
+    display: block;
+  }
+
+  .music-card {
+    margin-right: 0.3rem;
+    margin-left: 0.3rem;
+  }
+
+  .music-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 3rem;
+  }
+
+  .music-section {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: var(--header-height);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .tour-section-lg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: var(--header-height);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .logo img {
+    width: auto;
+    height: 8rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .music-card {
+    width: 23%;
+    height: 23rem;
+  }
+
+  .music-card:hover {
+    transform: translateY(-3rem);
+  }
+}
